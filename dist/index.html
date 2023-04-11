@@ -14,11 +14,11 @@
 
 <body>
      <main>
-        <h1>Responsive weather App powered by the open weather A P I</h1><!--for screen reader-->
+        <h1 class="offscreen">Responsive weather App powered by the open weather A P I</h1><!--for screen reader-->
 
         <section class="searchBar" id="searchBar">
             <form id="searchBar__Form" class="searchBar__Form" role="search">
-                <label for="searchBar__text">Enter new location</label>
+                <label for="searchBar__text" class="offscreen">Enter new location</label>
                 <input type="text" id="searchBar__text" class="searchBar__text" role="searchbox" size="40" autocomplete="off" placeholder="City,state,country">
                 <button id="searchBar__button" class="searchBar__button" aria-label="Enter Zip code or city, state and country to retrieve weather coditions">
                     <i class="fa fa-search"></i>
@@ -56,7 +56,7 @@
         </nav>
         <hr>
         <section class="dailyForecast" id="dailyForecast" role="region" aria-labelledby="dailyforecast__title">
-            <h2 id="dailyForecast__title" class="dailyForecast__title">Six Day Forecast</h2>
+            <h2 id="dailyForecast__title" class="dailyForecast__title offscreen">Six Day Forecast</h2>
             <div id="dailyForecast__context"></div>
         </section>
         <p id="confirmation" class="offScreen" aria-live="assertive"></p><!--we can sent text through javascript and screen reader will read it-->
