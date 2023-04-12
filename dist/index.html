@@ -29,7 +29,17 @@
         <a href="#currentForecast" class="Skip-link">skip to current coditions</a>
         <section class="currentForecast" id="currentForecast" role="region" aria-label="currentForecast__location">
             <h2 class="currentForecast__location" id="currentForecast_location">current conditions</h2>
-            <div class="currentForecast__conditions" id="currentForecast__conditions"></div><!--dynamically entered-->
+            <div class="currentForecast__conditions" id="currentForecast__conditions">
+                
+                <div class="icon" id="icon"><i class="far fa-sun" aria-hidden="true" title="clear sky"></i></div>
+                <div class="temp">59&#176;<div class="unit">F</div></div>
+                <div class="desc">Clear sky</div>
+                <div class="feels">feels like 53&#176;</div>
+                <div class="maxtemp">High 62&#176;</div>
+                <div class="mintemp">Low 39&#176;</div>
+                <div class="humidity">humidity 44%</div>
+                <div class="wind">wind 7mph</div>
+            </div><!--dynamically entered-->
         </section>
         <a href="#dailyForecast" class="Skip-link">skip to Forecast</a>
         <nav class="navButtons" id="navButtons">
@@ -57,7 +67,49 @@
         <hr>
         <section class="dailyForecast" id="dailyForecast" role="region" aria-labelledby="dailyforecast__title">
             <h2 id="dailyForecast__title" class="dailyForecast__title offscreen">Six Day Forecast</h2>
-            <div id="dailyForecast__context"></div>
+            <div id="dailyForecast__context">
+
+                <p class="dayAbbreviation">sun</p>
+                <img src="http://openweathermap.org/img/wn/03d.png" alt="Scattered clouds">
+                <p class="dayHigh">61</p>
+                <p class="dayLow">44</p>
+
+                <p class="dayAbbreviation">sun</p>
+                <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Scattered clouds">
+                <p class="dayHigh">61</p>
+                <p class="dayLow">44</p>
+
+                <p class="dayAbbreviation">sun</p>
+                <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Scattered clouds">
+                <p class="dayHigh">61</p>
+                <p class="dayLow">44</p>
+
+                <p class="dayAbbreviation">sun</p>
+                <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Scattered clouds">
+                <p class="dayHigh">61</p>
+                <p class="dayLow">44</p>
+
+                <p class="dayAbbreviation">sun</p>
+                <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Scattered clouds">
+                <p class="dayHigh">61</p>
+                <p class="dayLow">44</p>
+
+                <p class="dayAbbreviation">sun</p>
+                <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Scattered clouds">
+                <p class="dayHigh">61</p>
+                <p class="dayLow">44</p>
+
+                <p class="dayAbbreviation">sun</p>
+                <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Scattered clouds">
+                <p class="dayHigh">61</p>
+                <p class="dayLow">44</p>
+
+                <p class="dayAbbreviation">sun</p>
+                <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Scattered clouds">
+                <p class="dayHigh">61</p>
+                <p class="dayLow">44</p>
+                
+            </div>
         </section>
         <p id="confirmation" class="offScreen" aria-live="assertive"></p><!--we can sent text through javascript and screen reader will read it-->
      </main>
