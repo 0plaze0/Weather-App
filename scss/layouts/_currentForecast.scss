@@ -37,13 +37,13 @@
                 color:$fadecolor;
                 text-shadow: none;
                 position: absolute;
-                top: 30%;
+                top: 28%;
                 left: 40%;
                 @include mq(768px){
-                    left:75%;
+                    left:45%;
                 }
-                @include mqMaxWMinH(1024px,650px){
-                    left: 48%;
+                @include mqMaxWMinH(590px,736px){
+                 left: 45%;
                 }
             }
         }
