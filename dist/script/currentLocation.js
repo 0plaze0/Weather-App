@@ -22,7 +22,7 @@ export default class CurrentLocation{
     getLat(){
         return this._lat;
     }
-    setLon(lat){
+    setLat(lat){
         this._lat = lat;
     }
 
