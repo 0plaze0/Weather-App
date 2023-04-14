@@ -1,5 +1,6 @@
 import{
-    setLocationObject
+    setLocationObject,
+    getHomeLocation
 } from "./dataFunction.js";
 import{
     addSpinner,displayError
@@ -11,8 +12,11 @@ const initApp = ()=>{
     //add event listener
     const geoButton = document.getElementById("getLocation");
     geoButton.addEventListener("click",getGeoWeather);
+    const homeButton = document.getElementById("Home");
+    homeButton.addEventListener("click",loadWeather);
     //setup
     //load weather
+    loadWeather();
 }
 document.addEventListener("DOMContentLoaded",initApp);
 
@@ -40,8 +44,37 @@ const geoSuccess = (position)=>{
     setLocationObject(currentLoc, myCoordObj);
     updateDataAndDisplay(currentLoc);
 }
-
+const loadWeather = (event)=>{
+    const savedLocation = getHomeLocation();
+    if(!savedLocation && !event)return getGeoWeather();
+    if(!savedLocation && event.type=="click"){
+        displayError(
+            'No Home location set',
+            'Sorry, please set your home location'
+        )
+    }else if(savedLocation && !event){
+        displayHomeLocationWeather(savedLocation);
+    }else{
+        const HomeIcon = document.querySelector(".fa-home");
+        addSpinner(HomeIcon);
+        displayHomeLocationWeather(savedLocation);
+    }
+}
+const displayHomeLocationWeather = (home)=>{
+    if(typeof home == "string"){
+        const locationHome = JSON.parse(home);
+        const coordObj = {
+            lat:locationHome.lat,
+            lon:locationHome.lon,
+            name:locationHome.name,
+            unit:locationHome.unit
+        }
+        setLocationObject(currentLoc, coordObj);
+        updateDataAndDisplay(currentLoc);
+    }
+}
 const updateDataAndDisplay = async (locationObj)=>{
-    const weatherJson = await getWeatherFromCoords(locationObj);
-    if(weatherJson) updateDataAndDisplay(weatherJson,locationObj);
+    console.log(locationObj);
+    // const weatherJson = await getWeatherFromCoords(locationObj);
+    // if(weatherJson) updateDataAndDisplay(weatherJson,locationObj);
 }
