@@ -1,9 +1,11 @@
 import{
     setLocationObject,
     getHomeLocation,
+    getCoordsFromApi,
     cleanText
 } from "./dataFunction.js";
 import{
+    setPlaceholderText,
     addSpinner,
     displayError,
     displayApiError,
@@ -27,6 +29,7 @@ const initApp = ()=>{
     const locationEntry = document.getElementById("searchBar__Form")
     locationEntry.addEventListener("submit",submitNewLocation);
     //setup
+    setPlaceholderText();
     //load weather
     loadWeather();
 }
@@ -119,13 +122,17 @@ const submitNewLocation = async (event)=>{
     const searchIcon = document.querySelector(".fa-search");
     addSpinner(searchIcon);
     const coordData = await getCoordsFromApi(entryText, currentLoc.getUnit());
-    if(coordData.cod == 200){
-        //work with api data
-        const coordObj = {};
-        setLocationObject(currentLoc, coordObj);
-        updateDataAndDisplay(currentLoc);
+    if(coordData){
+        if(coordData.cod === 200){
+            //work with api data
+            const coordObj = {};
+            setLocationObject(currentLoc, coordObj);
+            updateDataAndDisplay(currentLoc);
+        }else{
+            displayApiError(coordData);
+        }
     }else{
-        displayApiError(coordData);
+        displayError("connection Error","connection Error");
     }
 }
 const updateDataAndDisplay = async (locationObj)=>{
