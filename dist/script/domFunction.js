@@ -15,6 +15,19 @@ export const displayError = (headerMsg, srMsg)=>{
     updateScreenReaderConfirmation(srMsg);
 }
 
+export const displayApiError = (text) =>{
+    const properText = toProperText(text);
+    updateWeatherLocationHeader(properText);
+    updateScreenReaderConfirmation(properText);
+}
+const toProperText = (text)=>{
+    const words = text.split(" ");
+    const properText = words.map(words => {
+        return words.charAt(0).toUpperCase() + words.slice(1);
+    })
+    return properText.join(" ");
+}
+
 const updateWeatherLocationHeader = (msg)=>{
     const h1 = document.getElementById("currentForecast_location");
     h1.textContent = msg;
