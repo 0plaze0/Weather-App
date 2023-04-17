@@ -1,66 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.min.css" />
     <script src="script/main.js" type="module"></script>
-</head>
+  </head>
 
-<body>
-     <main class="fade-in">
-        <h1 class="offscreen">Responsive weather App powered by the open weather A P I</h1><!--for screen reader-->
+  <body>
+    <main class="fade-in">
+      <h1 class="offscreen">
+        Responsive weather App powered by the open weather A P I
+      </h1>
+      <!--for screen reader-->
 
-        <section class="searchBar fade-in" id="searchBar">
-            <form id="searchBar__Form" class="searchBar__Form" role="search">
-                <label for="searchBar__text" class="offscreen">Enter new location</label>
-                <input type="text" id="searchBar__text" class="searchBar__text" role="searchbox" size="40" autocomplete="off" placeholder="City, State and Country">
-                <button id="searchBar__button" class="searchBar__button button" aria-label="Enter Zip code or city, state and country to retrieve weather coditions">
-                    <i class="fa fa-search"></i>
-                    <i class="fas fa-sync fa-spin none"></i>
-                </button>
-            </form>
-        </section>
-        <a href="#currentForecast" class="Skip-link">skip to current coditions</a>
-        <section class="currentForecast fade-in" id="currentForecast" role="region" aria-label="currentForecast__location">
-            <h2 class="currentForecast__location" id="currentForecast_location">current conditions</h2>
-            <div class="currentForecast__conditions" id="currentForecast__conditions"></div><!--dynamically entered-->
-        </section>
-        <a href="#dailyForecast" class="Skip-link">skip to Forecast</a>
-        <nav class="navButtons fade-in" id="navButtons">
-            <button id="getLocation" class="button" title="Get Location" aria-label="Get the current weather conditions for current location">
-                <i class="fas fa-map-marker-alt"></i>
-                <i class="fas fa-sync fa-spin none"></i>
-            </button>
-            <button id="Home" class="button" title="Home Weather" aria-label="Get the current weather conditions for Home location">
-                <i class="fas fa-home"></i>
-                <i class="fas fa-sync fa-spin none"></i>
-            </button>
-            <button id="saveLocation" class="button" title="save Location" aria-label="Save current location as your home location">
-                <i class="fas fa-save"></i>
-                <i class="fas fa-sync fa-spin none"></i>
-            </button>
-            <button id="unit" class="button" title="Toggle measurment units" aria-label="Toogle between metric and imperial measurement units">
-                <i class="fas fa-chart-bar"></i>
-                <i class="fas fa-sync fa-spin none"></i>
-            </button>
-            <button id="refresh" class="button" title="RefreshWeathe" aria-label="Refresh the current weather conditions">
-                <i class="fa-solid fa-rotate"></i>
-                <i class="fas fa-sync fa-spin none"></i>
-            </button>
-        </nav>
-        <hr class="fade-in">
-        <section class="dailyForecast fade-in" id="dailyForecast" role="region" aria-labelledby="dailyforecast__title">
-            <h2 id="dailyForecast__title" class="dailyForecast__title offscreen">Six Day Forecast</h2>
-            <div class="dailyForecast__content"></div>
-        </section>
-        <p id="confirmation" class="offScreen" aria-live="assertive"></p><!--we can sent text through javascript and screen reader will read it-->
-     </main>
-</body>
+      <section class="searchBar fade-in" id="searchBar">
+        <form id="searchBar__Form" class="searchBar__Form" role="search">
+          <label for="searchBar__text" class="offscreen"
+            >Enter new location</label
+          >
+          <input
+            type="text"
+            id="searchBar__text"
+            class="searchBar__text"
+            role="searchbox"
+            size="40"
+            autocomplete="off"
+            placeholder="City, State and Country"
+          />
+          <button
+            id="searchBar__button"
+            class="searchBar__button button"
+            aria-label="Enter Zip code or city, state and country to retrieve weather coditions"
+          >
+            <i class="fa fa-search"></i>
+            <i class="fas fa-sync fa-spin none"></i>
+          </button>
+        </form>
+      </section>
+      <a href="#currentForecast" class="Skip-link">skip to current coditions</a>
+      <section
+        class="currentForecast fade-in"
+        id="currentForecast"
+        role="region"
+        aria-label="currentForecast__location"
+      >
+        <h2 class="currentForecast__location" id="currentForecast_location">
+          current conditions
+        </h2>
+        <div
+          class="currentForecast__conditions"
+          id="currentForecast__conditions"
+        ></div>
+        <!--dynamically entered-->
+      </section>
+      <a href="#dailyForecast" class="Skip-link">skip to Forecast</a>
+      <nav class="navButtons fade-in" id="navButtons">
+        <button
+          id="getLocation"
+          class="button"
+          title="Get Location"
+          aria-label="Get the current weather conditions for current location"
+        >
+          <i class="fas fa-map-marker-alt"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+        <button
+          id="Home"
+          class="button"
+          title="Home Weather"
+          aria-label="Get the current weather conditions for Home location"
+        >
+          <i class="fas fa-home"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+        <button
+          id="saveLocation"
+          class="button"
+          title="save Location"
+          aria-label="Save current location as your home location"
+        >
+          <i class="fas fa-save"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+        <button
+          id="unit"
+          class="button"
+          title="Toggle measurment units"
+          aria-label="Toogle between metric and imperial measurement units"
+        >
+          <i class="fas fa-chart-bar"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+        <button
+          id="refresh"
+          class="button"
+          title="RefreshWeathe"
+          aria-label="Refresh the current weather conditions"
+        >
+          <i class="fa-solid fa-rotate"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+      </nav>
+      <hr class="fade-in" />
+      <section
+        class="dailyForecast fade-in"
+        id="dailyForecast"
+        role="region"
+        aria-labelledby="dailyforecast__title"
+      >
+        <h2 id="dailyForecast__title" class="dailyForecast__title offscreen">
+          Six Day Forecast
+        </h2>
+        <div class="dailyForecast__content" id="dailyForecast__content"></div>
+      </section>
+      <p id="confirmation" class="offScreen" aria-live="assertive"></p>
+      <!--we can sent text through javascript and screen reader will read it-->
+    </main>
+  </body>
 </html>
